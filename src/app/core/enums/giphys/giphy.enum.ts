@@ -9,10 +9,10 @@ export enum GiphyHeader {
 }
 
 export enum GiphyField {
-    IMAGE = "IMAGE",
-    TITLE = "TITLE",
-    USER_NAME = "USER_NAME",
-    USER_AVATAR = "USER_AVATAR",
-    IMPORT_DATETIME = "IMPORT_DATETIME",
-    STATUS = "STATUS",
+    IMAGE = "image",
+    TITLE = "title",
+    USER_NAME = "userName",
+    USER_AVATAR = "userAvatar",
+    IMPORT_DATETIME = "importDateTime",
+    STATUS = "isVerified",
 }

@@ -1,4 +1,4 @@
-import { GridOptions } from "@ag-grid-enterprise/all-modules";
+import { formatDate } from "@angular/common";
 
 /**
  * @author lamisreal
@@ -14,7 +14,23 @@ export function CheckNullOrUndefinedOrEmpty(value: any): boolean {
   );
 }
 
-export const gridOptions: GridOptions = {
+export function convertDateTime(date: string) {
+  if (!CheckNullOrUndefinedOrEmpty(date)) {
+      return formatDate(date, "dd/MM/yyyy hh:mm", "en-US");
+  } else {
+      return "";
+  }
+}
+
+export function convertDate(date: string) {
+  if (!CheckNullOrUndefinedOrEmpty(date)) {
+      return formatDate(date, "dd/MM/yyyy", "en-US");
+  } else {
+      return "";
+  }
+}
+
+export const gridOptions = {
   rowSelection: 'single',
   rowModelType: 'infinite',
   rowHeight: 40,
@@ -25,19 +41,3 @@ export const gridOptions: GridOptions = {
   paginationAutoPageSize: false,
   sortingOrder: ['asc', 'desc', null],
 };
-
-export function statusUserVerify(params: any) {
-  let result;
-  switch (params.value) {
-    case true:
-      result = { color: "green" };
-      break;
-    case false:
-      result = { color: "red" };
-      break;
-    default:
-      result = null;
-      break;
-  }
-  return result;
-}

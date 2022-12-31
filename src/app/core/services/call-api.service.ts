@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import * as backends from './backend-api';
 import { map, Observable } from 'rxjs';
-import { GiphySearchParam, GiphyTrendingParam } from '../models/giphys/giphys.model';
+import { GiphyParam } from '../models/giphys/giphys.model';
 
 @Injectable({
     providedIn: 'root'
@@ -13,9 +13,13 @@ export class ApiService {
         private http: HttpClient
     ) { }
 
-    getAllTrendingGifs(data?: GiphyTrendingParam): Observable<any> {
+    getAllTrendingGifs(data?: GiphyParam): Observable<any> {
         let param = new HttpParams();
 
+        if (data?.offset) {
+            param = param.append('offset', data.offset);
+        }
+        
         if (data?.rating) {
             param = param.append('rating', data.rating);
         }
@@ -42,7 +46,7 @@ export class ApiService {
         )
     }
 
-    getSearchItemGifs(data?: GiphySearchParam): Observable<any> {
+    getSearchItemGifs(data?: GiphyParam): Observable<any> {
         let param = new HttpParams();
 
         if (data?.query) {

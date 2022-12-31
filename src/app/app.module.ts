@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './layouts/components/page-not-found/page-not-found.component';
@@ -31,7 +30,6 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    AgGridModule,
     BrowserAnimationsModule,
     MaterialModule,
     RouterModule.forRoot(appRoutes),

@@ -21,6 +21,7 @@ export const giphyColumnDefs: (
         {
             headerName: Enums.GiphyHeader.IMAGE,
             field: Enums.GiphyField.IMAGE,
+            cellRenderer: "gifImageRender",
         },
         {
             headerName: Enums.GiphyHeader.TITLE,
@@ -33,6 +34,7 @@ export const giphyColumnDefs: (
         {
             headerName: Enums.GiphyHeader.USER_AVATAR,
             field: Enums.GiphyField.USER_AVATAR,
+            cellRenderer: "avatarImageRender",
         },
         {
             headerName: Enums.GiphyHeader.STATUS,

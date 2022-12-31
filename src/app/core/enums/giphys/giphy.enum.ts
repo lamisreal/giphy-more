@@ -16,3 +16,8 @@ export enum GiphyField {
     IMPORT_DATETIME = "importDateTime",
     STATUS = "isVerified",
 }
+
+export enum GiphyType{
+    SEARCH = "SEARCH",
+    TRENDING = "TRENDING",
+}

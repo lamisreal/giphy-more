@@ -33,8 +33,9 @@ export function convertDate(date: string) {
 export const gridOptions = {
   rowSelection: 'single',
   rowModelType: 'infinite',
-  rowHeight: 40,
   cacheBlockSize: 10,
+  autoHeight: true,
+  rowHeight: 150,
   maxBlocksInCache: 10,
   paginationPageSize: 10,
   pagination: true,

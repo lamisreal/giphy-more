@@ -33,7 +33,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MaterialModule,
     RouterModule.forRoot(appRoutes),
-    MainModule
+    MainModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

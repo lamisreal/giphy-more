@@ -6,6 +6,9 @@ import { AgGridModule } from "ag-grid-angular";
 import { GiphyViewComponent } from './giphy-view/giphy-view.component';
 import { GiphyDetailComponent } from './giphy-detail/giphy-detail.component';
 import { MaterialModule } from "src/app/core/models/material/material.module";
+import { GifImageRenderComponent } from './_share/gif-image-render/gif-image-render.component';
+import { AvatarImageRenderComponent } from './_share/avatar-image-render/avatar-image-render.component';
+import { FormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
@@ -28,6 +31,8 @@ const routes: Routes = [
   declarations: [
     GiphyViewComponent,
     GiphyDetailComponent,
+    GifImageRenderComponent,
+    AvatarImageRenderComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +40,7 @@ const routes: Routes = [
     AgGridModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule
   ]
 })
 

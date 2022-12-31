@@ -3,8 +3,8 @@ import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { Routes, RouterModule } from "@angular/router";
 import { AgGridModule } from "ag-grid-angular";
+import { GiphyViewComponent } from './giphy-view/giphy-view.component';
 import { GiphyDetailComponent } from './giphy-detail/giphy-detail.component';
-import { GiphysComponent } from "./giphys.component";
 
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: GiphysComponent,
+        component: GiphyViewComponent,
       },
       {
         path: 'detail',
@@ -25,7 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    GiphysComponent,
+    GiphyViewComponent,
     GiphyDetailComponent,
   ],
   imports: [

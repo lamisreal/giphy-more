@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ApiService } from 'src/app/core/services/call-api.service';
 import * as AgModules from '@ag-grid-enterprise/all-modules';
 import * as Utils from '../../../core/utils/common-function';
-// import * as GiphyUtils from 'src/app/core/utils/giphys/giphy.utils';
+import * as GiphyUtils from 'src/app/core/utils/giphys/giphy.utils';
 
 @Component({
   selector: 'app-giphys',
@@ -11,11 +11,11 @@ import * as Utils from '../../../core/utils/common-function';
 })
 export class GiphysComponent {
 
-  // modules = AgModules.AllModules;
-  // columnDefs = GiphyUtils.giphyColumnDefs;
-  // defaultColDef = GiphyUtils.giphyDefaultColDef;
-  // gridOptions: AgModules.GridOptions = Utils.gridOptions;
-  // rowData = [];
+  modules = AgModules.AllModules;
+  columnDefs = GiphyUtils.giphyColumnDefs;
+  defaultColDef = GiphyUtils.giphyDefaultColDef;
+  gridOptions: AgModules.GridOptions = Utils.gridOptions;
+  rowData = [];
 
   constructor(private callApi: ApiService) { }
 

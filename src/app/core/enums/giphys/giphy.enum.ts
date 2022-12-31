@@ -1,18 +1,18 @@
 
 export enum GiphyHeader {
-    PRODUCT_NAME = "Product Name",
-    LISTED_PRICE = "Listed Price",
-    DISCOUNT = "Discount",
-    DISCOUNTED_PRICE = "Discounted Price",
+    IMAGE = "Image",
+    TITLE = "Title",
+    USER_NAME = "Creator Name",
+    USER_AVATAR = "Creator Avatar",
+    IMPORT_DATETIME = "Import Date",
     STATUS = "Status",
-    REDEMPTION_ORDER = "Redemption Order",
 }
 
 export enum GiphyField {
-    name = "productName",
-    LISTED_PRICE = "listedPrice",
-    DISCOUNT = "discount",
-    DISCOUNTED_PRICE = "discountedPrice",
-    STATUS = "status",
-    REDEMPTION_ORDER = "redemptionOrder",
+    IMAGE = "IMAGE",
+    TITLE = "TITLE",
+    USER_NAME = "USER_NAME",
+    USER_AVATAR = "USER_AVATAR",
+    IMPORT_DATETIME = "IMPORT_DATETIME",
+    STATUS = "STATUS",
 }

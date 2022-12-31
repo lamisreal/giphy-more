@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './layouts/component/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './layouts/components/page-not-found/page-not-found.component';
 import { MainModule } from './layouts/main/main.module';
-import { FooterComponent } from './layouts/component/footer/footer.component';
-import { HeaderComponent } from './layouts/component/header/header.component';
+import { FooterComponent } from './layouts/components/footer/footer.component';
+import { HeaderComponent } from './layouts/components/header/header.component';
 import { MaterialModule } from './core/models/material/material.module';
 
 

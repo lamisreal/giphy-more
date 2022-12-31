@@ -26,7 +26,6 @@ export class ApiService {
 
         return this.http.get<any>(backends.getAllTrendingGifsApi, { params: param }).pipe(
             map(data => {
-                console.log('data:', data)
                 return data;
             })
         )
@@ -38,7 +37,6 @@ export class ApiService {
 
         return this.http.get<any>(backends.getGifByIDApi, { params: param }).pipe(
             map(data => {
-                console.log('data:', data)
                 return data;
             })
         )
@@ -69,7 +67,6 @@ export class ApiService {
 
         return this.http.get<any>(backends.getSearchGifsApi, { params: param }).pipe(
             map(data => {
-                console.log('data:', data)
                 return data;
             })
         )

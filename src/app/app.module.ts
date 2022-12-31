@@ -3,20 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './layouts/header/header.component';
-import { SearchComponent } from './layouts/search/search.component';
-import { GiphysComponent } from './layouts/main/giphys/giphys.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './layouts/component/page-not-found/page-not-found.component';
+import { MainModule } from './layouts/main/main.module';
 
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./layouts/main/main.module').then(m => m.MainModule)
+  },
+  { path: '**', component: PageNotFoundComponent },
+
+];
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SearchComponent,
-    GiphysComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AgGridModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes),
+    MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]

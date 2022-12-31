@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './layouts/component/page-not-found/page-not-found.component';
 import { MainModule } from './layouts/main/main.module';
+import { FooterComponent } from './layouts/component/footer/footer.component';
+import { HeaderComponent } from './layouts/component/header/header.component';
 
 
 const appRoutes: Routes = [
@@ -22,6 +24,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

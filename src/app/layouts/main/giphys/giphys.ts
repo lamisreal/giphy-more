@@ -21,3 +21,17 @@ export function renderGiphy(gifs: any[]) {
 
     return result;
 }
+
+export function renderGifDetail(gif: any): Giphy {
+    let giphy: Giphy = new Giphy();
+
+    giphy.id = gif?.id;
+    giphy.image = gif?.images?.downsized?.url;
+    giphy.title = gif?.title || "No title";
+    giphy.userName = gif?.user?.username || "Anonymous";
+    giphy.userAvatar = gif?.user?.avatar_url;
+    giphy.importDateTime = convertDateTime(gif?.import_datetime);
+    giphy.isVerified = gif?.is_verified;
+
+    return giphy;
+}

@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './layouts/component/page-not-found/page-n
 import { MainModule } from './layouts/main/main.module';
 import { FooterComponent } from './layouts/component/footer/footer.component';
 import { HeaderComponent } from './layouts/component/header/header.component';
+import { MaterialModule } from './core/models/material/material.module';
 
 
 const appRoutes: Routes = [
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     AgGridModule,
     BrowserAnimationsModule,
+    MaterialModule,
     RouterModule.forRoot(appRoutes),
     MainModule
   ],

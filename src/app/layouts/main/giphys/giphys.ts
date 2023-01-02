@@ -1,3 +1,4 @@
+import { nullAvatar, nullCreatorName, nullTitle } from "src/app/core/constant";
 import { Giphy } from "src/app/core/models/giphys/giphys.model";
 import { convertDateTime } from "src/app/core/utils/common-function";
 
@@ -8,14 +9,7 @@ export function renderGiphy(gifs: any[]) {
         const gif = gifs[index];
 
         let giphy = new Giphy();
-        giphy.id = gif?.id;
-        giphy.image = gif?.images?.downsized?.url;
-        giphy.title = gif?.title;
-        giphy.userName = gif?.user?.username;
-        giphy.userAvatar = gif?.user?.avatar_url;
-        giphy.importDateTime = convertDateTime(gif?.import_datetime);
-        giphy.isVerified = gif?.is_verified;
-
+        giphy = renderGifDetail(gif);
         result.push(giphy);
     }
 
@@ -27,9 +21,9 @@ export function renderGifDetail(gif: any): Giphy {
 
     giphy.id = gif?.id;
     giphy.image = gif?.images?.downsized?.url;
-    giphy.title = gif?.title || "No title";
-    giphy.userName = gif?.user?.username || "Anonymous";
-    giphy.userAvatar = gif?.user?.avatar_url;
+    giphy.title = gif?.title || nullTitle;
+    giphy.userName = gif?.user?.username || nullCreatorName;
+    giphy.userAvatar = gif?.user?.avatar_url || nullAvatar;
     giphy.importDateTime = convertDateTime(gif?.import_datetime);
     giphy.isVerified = gif?.is_verified;
 

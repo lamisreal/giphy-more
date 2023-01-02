@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GiphyMore';
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+
+    this.removeLocalStorage();
+  }
+
+  removeLocalStorage() {
+    localStorage.removeItem('key');
+  }
 }

@@ -25,6 +25,8 @@ export class Giphy {
     displayName: string;
     profileUrl: string;
     userDescription: string;
+    sourceGiphy: string;
+    sourceGiphyShort: string;
     source: string;
     sourceShort: string;
 }

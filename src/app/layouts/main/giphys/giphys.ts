@@ -20,7 +20,7 @@ export function renderGifDetail(gif: any): Giphy {
     let giphy: Giphy = new Giphy();
 
     giphy.id = gif?.id;
-    giphy.image = gif?.images?.downsized?.url;
+    giphy.image = gif?.images?.downsized?.url ? gif?.images?.downsized?.url : gif?.images?.downsized_large?.url;
     giphy.title = gif?.title || nullTitle;
     giphy.userName = gif?.user?.username;
     giphy.userAvatar = gif?.user?.avatar_url || nullAvatar;
@@ -32,7 +32,9 @@ export function renderGifDetail(gif: any): Giphy {
     giphy.userDescription = gif?.user?.description;
     giphy.source = gif?.source;
     // giphy.sourceShort = gif?.source?.replace("http://", "").replace("https://", "").replace("www.", "").substring(0, 20).concat("...");
-    giphy.sourceShort = "posts link";
+    giphy.sourceShort = "Original post";
+    giphy.sourceGiphy = gif?.url;
+    giphy.sourceGiphyShort = "Original ghipy post";
 
     return giphy;
 }

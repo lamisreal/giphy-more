@@ -25,9 +25,11 @@
                 </p>
             </div>
             <br />
-            <div *ngIf="gifDetail.source" class="source">
+            <div *ngIf="gifDetail.source && gifDetail.sourceGiphy" class="source">
                 <h3 class="title">Source</h3>
-                <a class="content" [href]="gifDetail.source" target="_blank">@{{gifDetail.sourceShort}}</a>
+                <a *ngIf="gifDetail.source" class="content" [href]="gifDetail.source" target="_blank">@{{gifDetail.sourceShort}}</a>
+                <br />
+                <a *ngIf="gifDetail.sourceGiphy" class="content" [href]="gifDetail.sourceGiphy" target="_blank">@{{gifDetail.sourceGiphyShort}}</a>
             </div>
         </div>
         <div class="col-sm-8 detail-right">

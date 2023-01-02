@@ -16,17 +16,17 @@ export function CheckNullOrUndefinedOrEmpty(value: any): boolean {
 
 export function convertDateTime(date: string) {
   if (!CheckNullOrUndefinedOrEmpty(date)) {
-      return formatDate(date, "dd/MM/yyyy hh:mm", "en-US");
+    return formatDate(date, "dd/MM/yyyy hh:mm", "en-US");
   } else {
-      return "";
+    return "";
   }
 }
 
 export function convertDate(date: string) {
   if (!CheckNullOrUndefinedOrEmpty(date)) {
-      return formatDate(date, "dd/MM/yyyy", "en-US");
+    return formatDate(date, "dd/MM/yyyy", "en-US");
   } else {
-      return "";
+    return "";
   }
 }
 

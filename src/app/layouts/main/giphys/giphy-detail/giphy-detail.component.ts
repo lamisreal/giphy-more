@@ -48,10 +48,14 @@ export class GiphyDetailComponent implements OnInit {
     this.checkCount = 1;
     this.router.navigate(["detail"],
       { queryParams: { q: id } });
-      
+
     setTimeout(() => {
       this.ngOnInit();
     }, 500);
+  }
+
+  back() {
+    this.router.navigate(["/"]);
   }
 
   callAPIGetDetail() {

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +10,8 @@ import { MainModule } from './layouts/main/main.module';
 import { FooterComponent } from './layouts/components/footer/footer.component';
 import { HeaderComponent } from './layouts/components/header/header.component';
 import { MaterialModule } from './core/models/material/material.module';
+import { SpinnerComponent } from './layouts/components/spinner/spinner.component';
+import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 
 
 const appRoutes: Routes = [
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     PageNotFoundComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     MainModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

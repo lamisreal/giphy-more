@@ -34,17 +34,15 @@ export class ApiService {
             })
         )
     }
+    
     getDetailItemGifs(id: string): Observable<any> {
-        let param = new HttpParams();
-
-        param = param.append('ID', id);
-
-        return this.http.get<any>(backends.getGifByIDApi, { params: param }).pipe(
+        return this.http.get<any>(backends.getGifByIDApi.replace("ID", id)).pipe(
             map(data => {
                 return data;
             })
         )
     }
+
 
     getSearchItemGifs(data?: GiphyParam): Observable<any> {
         let param = new HttpParams();
@@ -70,6 +68,14 @@ export class ApiService {
         }
 
         return this.http.get<any>(backends.getSearchGifsApi, { params: param }).pipe(
+            map(data => {
+                return data;
+            })
+        )
+    }
+
+    getViewCountGif(id: string): Observable<any> {
+        return this.http.get<any>(backends.getViewCountGifApi.replace("ID", id)).pipe(
             map(data => {
                 return data;
             })

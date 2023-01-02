@@ -9,6 +9,7 @@ import { MaterialModule } from "src/app/core/models/material/material.module";
 import { GifImageRenderComponent } from './_share/gif-image-render/gif-image-render.component';
 import { AvatarImageRenderComponent } from './_share/avatar-image-render/avatar-image-render.component';
 import { FormsModule } from '@angular/forms';
+import { AutoFocusDirective } from "src/app/autoFocus.directive";
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
     GiphyDetailComponent,
     GifImageRenderComponent,
     AvatarImageRenderComponent,
+    AutoFocusDirective
   ],
   imports: [
     CommonModule,

@@ -4,3 +4,18 @@
 @import 'ag-grid-community/styles/ag-theme-alpine.css';
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'material-icons/iconfont/material-icons.css';
+
+a {
+    text-decoration: none !important;
+    color: var(--link-color);
+}
+
+:root{
+  /* --primary-color: #aaa; */
+  --link-color: #a6a6a6;
+  --verified-color: #0a73eb;
+  --text-color: #5a616f;
+  --descrp-background: #edecec;
+  --font-size-icon: 15px;
+  --hover-color: #990000;
+}

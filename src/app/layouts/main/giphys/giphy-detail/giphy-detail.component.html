@@ -1,1 +1,55 @@
-<p>giphy-detail works!</p>
+<div class="container mt-5">
+    <div class="link-icons">
+        <span class="material-icons" (click)="back()">chevron_left</span>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 detail-left">
+            <div class="user">
+                <img class="image-avatar" [src]="gifDetail.userAvatar" [alt]="gifDetail.userName">
+                <div class="info">
+                    <h2 class="display-name">{{gifDetail.displayName}}</h2>
+                    <div class="user-name" *ngIf="gifDetail.userName">
+                        <a [href]="gifDetail.profileUrl" target="_blank">@{{gifDetail.userName}}</a>
+                        <div *ngIf="gifDetail.isVerified === true" id="verified">
+                            <span class="material-icons">verified</span>
+                            <span class="arrow-left"></span>
+                            <span class="hover-text-verified">Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="gifDetail.userDescription" class="desc">
+                <h3 class="title">Description</h3>
+                <p class="content">
+                    {{gifDetail.userDescription}}
+                </p>
+            </div>
+            <br />
+            <div *ngIf="gifDetail.source && gifDetail.sourceGiphy" class="source">
+                <h3 class="title">Source</h3>
+                <a *ngIf="gifDetail.source" class="content" [href]="gifDetail.source" target="_blank">@{{gifDetail.sourceShort}}</a>
+                <br />
+                <a *ngIf="gifDetail.sourceGiphy" class="content" [href]="gifDetail.sourceGiphy" target="_blank">@{{gifDetail.sourceGiphyShort}}</a>
+            </div>
+        </div>
+        <div class="col-sm-8 detail-right">
+            <div class="main">
+                <h2>{{gifDetail.title}}</h2>
+                <h5>Created at: {{gifDetail.uploadAt}}<span *ngIf="viewCount"> - {{viewCount}} Views</span></h5>
+                <img class="image-gif" [src]="gifDetail.image" [alt]="gifDetail.title">
+            </div>
+            <div class="other">
+                <h2>Other {{textOther}} GIFs</h2>
+
+                <div class="gifs">
+                    <div class="gif" *ngFor="let gif of gifs">
+                        <mat-card class="cursor" (click)="seeDetail(gif.id)">
+                            <img mat-card-image [src]="gif.image">
+                        </mat-card>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

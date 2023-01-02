@@ -1,13 +1,14 @@
 <br />
 <div class="input-group">
-   <input type="text" class="shadow p-3 mb-4 bg-body rounded form-control w-50 p-1"
+   <input autoFocus type="text" class="shadow p-3 mb-4 bg-body rounded form-control w-50 p-1"
       placeholder="Please input value and press enter keyboard" [(ngModel)]="giphySearch"
       (keyup.enter)="onClickSearchGif()" (keyup)="refeshToTreding()">
 </div>
-
-<p>Category: {{category}}</p>
-<ag-grid-angular style="width: 100%; height: 450px;" class="ag-theme-alpine" [modules]="modules"
+<h2>Category: {{category}}</h2>
+<ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-alpine" [modules]="modules"
    [columnDefs]="columnDefs" [gridOptions]="gridOptions" [defaultColDef]="defaultColDef"
-   (rowDoubleClicked)="onRowDoubleClicked($event.data)" [frameworkComponents]="frameworkComponents"
-   (gridReady)="onGridReady($event)">
+   (rowDoubleClicked)="onRowDoubleClicked($event.data)" (rowClicked)="onRowDoubleClicked($event.data)"
+   [frameworkComponents]="frameworkComponents" (gridReady)="onGridReady($event)"
+   [overlayLoadingTemplate]="loadingTemplate" [overlayNoRowsTemplate]="emptyTemplate">
 </ag-grid-angular>
+<br />

@@ -11,7 +11,7 @@ export enum GiphyHeader {
 export enum GiphyField {
     IMAGE = "image",
     TITLE = "title",
-    USER_NAME = "userName",
+    USER_NAME = "displayName",
     USER_AVATAR = "userAvatar",
     IMPORT_DATETIME = "importDateTime",
     STATUS = "isVerified",

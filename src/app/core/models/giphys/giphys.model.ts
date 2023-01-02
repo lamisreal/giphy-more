@@ -20,5 +20,13 @@ export class Giphy {
     userName: string;
     userAvatar: string;
     importDateTime: string;
+    uploadAt: string;
     isVerified: boolean;
+    displayName: string;
+    profileUrl: string;
+    userDescription: string;
+    sourceGiphy: string;
+    sourceGiphyShort: string;
+    source: string;
+    sourceShort: string;
 }

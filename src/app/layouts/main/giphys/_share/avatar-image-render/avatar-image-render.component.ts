@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { nullAvatar } from 'src/app/core/constant';
 
 @Component({
   selector: 'app-avatar-image-render',
@@ -12,7 +13,7 @@ export class AvatarImageRenderComponent {
 
   agInit(params: any): void {
     this.params = params;
-    this.image = params.value;
+    this.image = params.value || nullAvatar;
     this.alt = "Image";
   }
 

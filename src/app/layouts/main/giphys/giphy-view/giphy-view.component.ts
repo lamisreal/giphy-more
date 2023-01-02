@@ -15,7 +15,7 @@ import { GiphyType } from 'src/app/core/enums/giphys/giphy.enum';
 @Component({
   selector: 'app-giphy-view',
   templateUrl: './giphy-view.component.html',
-  styleUrls: ['./giphy-view.component.css']
+  styleUrls: ['./giphy-view.component.scss']
 })
 export class GiphyViewComponent {
 

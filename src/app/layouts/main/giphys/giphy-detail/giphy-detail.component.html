@@ -1,37 +1,50 @@
 <div class="container mt-5">
     <div class="row">
-        <div class="col-sm-3">
-            <h1>{{gifDetail.userName}}</h1>
-            <img [src]="gifDetail.image" [alt]="gifDetail.title">
-            <div class="fakeimg">Title</div>
-            <p>{{gifDetail.title}}</p>
-            <h3 class="mt-4">Some Links</h3>
-            <p>Lorem ipsum dolor sit ame.</p>
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-            <hr class="d-sm-none">
+        <div class="col-sm-3 detail-left">
+            <div class="user">
+                <img class="image-avatar" [src]="gifDetail.userAvatar" [alt]="gifDetail.userName">
+                <div class="info">
+                    <h2 class="display-name">{{gifDetail.displayName}}</h2>
+                    <div class="user-name">
+                        <a [href]="gifDetail.profileUrl" target="_blank">@{{gifDetail.userName}}</a>
+                        <div *ngIf="gifDetail.isVerified === true" id="verified">
+                            <span class="material-icons">verified</span>
+                            <span class="arrow-left"></span>
+                            <span class="hover-text-verified">Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="gifDetail.userDescription" class="desc">
+                <h3 class="title">Description</h3>
+                <p class="content">
+                    {{gifDetail.userDescription}}
+                </p>
+            </div>
+            <br />
+            <div *ngIf="gifDetail.source" class="source">
+                <h3 class="title">Source</h3>
+                <a class="content" [href]="gifDetail.source" target="_blank">@{{gifDetail.sourceShort}}</a>
+            </div>
         </div>
-        <div class="col-sm-9">
-            <h2>Other GIFs</h2>
-            <h5>Title description, Dec 7, 2020</h5>
-            <div class="fakeimg">Fake Image</div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco.</p>
+        <div class="col-sm-9 detail-right">
+            <div class="main">
+                <h2>{{gifDetail.title}}</h2>
+                <h5>{{gifDetail.uploadAt}}<span *ngIf="viewCount"> - {{viewCount}} Views</span></h5>
+                <img class="image-gif" [src]="gifDetail.image" [alt]="gifDetail.title">
+            </div>
+            <div class="other">
+                <h2>Other trending GIFs</h2>
 
+                <div class="gifs">
+                    <div class="gif" *ngFor="let gif of gifs">
+                        <mat-card class="cursor" (click)="seeDetail(gif.id)">
+                            <img mat-card-image [src]="gif.image">
+                        </mat-card>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

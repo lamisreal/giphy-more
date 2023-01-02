@@ -1,6 +1,6 @@
 import { nullAvatar, nullCreatorName, nullTitle } from "src/app/core/constant";
 import { Giphy } from "src/app/core/models/giphys/giphys.model";
-import { convertDateTime } from "src/app/core/utils/common-function";
+import { convertDate, convertDateTime } from "src/app/core/utils/common-function";
 
 export function renderGiphy(gifs: any[]) {
     let result: Giphy[] = [];
@@ -22,10 +22,16 @@ export function renderGifDetail(gif: any): Giphy {
     giphy.id = gif?.id;
     giphy.image = gif?.images?.downsized?.url;
     giphy.title = gif?.title || nullTitle;
-    giphy.userName = gif?.user?.username || nullCreatorName;
+    giphy.userName = gif?.user?.username;
     giphy.userAvatar = gif?.user?.avatar_url || nullAvatar;
     giphy.importDateTime = convertDateTime(gif?.import_datetime);
-    giphy.isVerified = gif?.is_verified;
+    giphy.uploadAt = convertDate(gif?.import_datetime);
+    giphy.isVerified = gif?.user?.is_verified || false;
+    giphy.displayName = gif?.user?.display_name || nullCreatorName;
+    giphy.profileUrl = gif?.user?.profile_url;
+    giphy.userDescription = gif?.user?.description;
+    giphy.source = gif?.source;
+    giphy.sourceShort = (gif?.source.substring(8).split('/')[0] + "/").concat((gif?.source.substring(8).split('/')[1] + "/")).concat("...");
 
     return giphy;
 }

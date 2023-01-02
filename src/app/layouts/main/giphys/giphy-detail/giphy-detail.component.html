@@ -3,12 +3,12 @@
         <span class="material-icons" (click)="back()">chevron_left</span>
     </div>
     <div class="row">
-        <div class="col-sm-3 detail-left">
+        <div class="col-sm-4 detail-left">
             <div class="user">
                 <img class="image-avatar" [src]="gifDetail.userAvatar" [alt]="gifDetail.userName">
                 <div class="info">
                     <h2 class="display-name">{{gifDetail.displayName}}</h2>
-                    <div class="user-name">
+                    <div class="user-name" *ngIf="gifDetail.userName">
                         <a [href]="gifDetail.profileUrl" target="_blank">@{{gifDetail.userName}}</a>
                         <div *ngIf="gifDetail.isVerified === true" id="verified">
                             <span class="material-icons">verified</span>
@@ -30,14 +30,14 @@
                 <a class="content" [href]="gifDetail.source" target="_blank">@{{gifDetail.sourceShort}}</a>
             </div>
         </div>
-        <div class="col-sm-9 detail-right">
+        <div class="col-sm-8 detail-right">
             <div class="main">
                 <h2>{{gifDetail.title}}</h2>
-                <h5>{{gifDetail.uploadAt}}<span *ngIf="viewCount"> - {{viewCount}} Views</span></h5>
+                <h5>Created at: {{gifDetail.uploadAt}}<span *ngIf="viewCount"> - {{viewCount}} Views</span></h5>
                 <img class="image-gif" [src]="gifDetail.image" [alt]="gifDetail.title">
             </div>
             <div class="other">
-                <h2>Other trending GIFs</h2>
+                <h2>Other {{textOther}} GIFs</h2>
 
                 <div class="gifs">
                     <div class="gif" *ngFor="let gif of gifs">

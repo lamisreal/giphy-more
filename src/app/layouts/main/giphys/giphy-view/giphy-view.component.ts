@@ -98,6 +98,8 @@ export class GiphyViewComponent {
             offset: this.limit * page
           }
 
+          localStorage.setItem('key', this.giphySearch);
+
           this.callApi.getSearchItemGifs(param).subscribe((response: any) => {
             if (!Utils.CheckNullOrUndefinedOrEmpty(response.data) && response.data.length > 0) {
               let dataArr = renderGiphy(response.data);
@@ -118,6 +120,6 @@ export class GiphyViewComponent {
   refeshToTreding() {
     if (Utils.CheckNullOrUndefinedOrEmpty(this.giphySearch)) {
       this.getData(this.gridApi, GiphyType.TRENDING);
-    } 
+    }
   }
 }

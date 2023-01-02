@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Giphy, GiphyParam } from 'src/app/core/models/giphys/giphys.model';
-import { ApiService } from 'src/app/core/services/call-api.service';
-import { CheckNullOrUndefinedOrEmpty } from 'src/app/core/utils/common-function';
-import { renderGifDetail, renderGiphy } from '../giphys';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Giphy, GiphyParam } from "src/app/core/models/giphys/giphys.model";
+import { ApiService } from "src/app/core/services/call-api.service";
+import { CheckNullOrUndefinedOrEmpty } from "src/app/core/utils/common-function";
+import { renderGifDetail, renderGiphy } from "../giphys";
 
 @Component({
-  selector: 'app-giphy-detail',
-  templateUrl: './giphy-detail.component.html',
-  styleUrls: ['./giphy-detail.component.scss']
+  selector: "app-giphy-detail",
+  templateUrl: "./giphy-detail.component.html",
+  styleUrls: ["./giphy-detail.component.scss"]
 })
 export class GiphyDetailComponent implements OnInit {
-  gifId: string = '';
+  gifId: string = "";
   gifDetail: Giphy = new Giphy();
   gifs: Giphy[] = [];
-  viewCount: string = '';
+  viewCount: string = "";
   checkCount: number = 0;
+  keySearch: string = "";
+  textOther: string = "trending";
 
   constructor(
     private _activatedRoute: ActivatedRoute,
@@ -28,8 +30,9 @@ export class GiphyDetailComponent implements OnInit {
       } else {
         this.router.navigate(["page-not-found"]);
       }
-
     });
+
+    this.keySearch = localStorage.getItem("key") || "";
   }
 
   ngOnInit(): void {
@@ -38,10 +41,10 @@ export class GiphyDetailComponent implements OnInit {
       window.location.reload();
     }
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    //Add "implements OnInit" to the class.
     this.callAPIGetDetail();
     this.callAPIGetViewCount();
-    this.callAPIGetAllTrendingGifs();
+    this.callAPIGetAllGifs();
   }
 
   seeDetail(id: string) {
@@ -74,15 +77,32 @@ export class GiphyDetailComponent implements OnInit {
     })
   }
 
-  callAPIGetAllTrendingGifs() {
-    const param: GiphyParam = {
-      limit: 30,
-    }
-    this.callApi.getAllTrendingGifs(param).subscribe((response: any) => {
-      if (!CheckNullOrUndefinedOrEmpty(response.data) && response.data.length > 0) {
-        this.gifs = renderGiphy(response.data);
+  callAPIGetAllGifs() {
+    this.gifs = [];
+    localStorage.removeItem("key");
+
+    if (this.keySearch) {
+      this.textOther = "search";
+      const param: GiphyParam = {
+        query: this.keySearch,
+        limit: 30,
       }
-    });
+      this.callApi.getSearchItemGifs(param).subscribe((response: any) => {
+        if (!CheckNullOrUndefinedOrEmpty(response.data) && response.data.length > 0) {
+          this.gifs = renderGiphy(response.data);
+        }
+      });
+    } else {
+      const param: GiphyParam = {
+        limit: 30,
+      }
+      this.callApi.getAllTrendingGifs(param).subscribe((response: any) => {
+        if (!CheckNullOrUndefinedOrEmpty(response.data) && response.data.length > 0) {
+          this.gifs = renderGiphy(response.data);
+        }
+      });
+    }
+
   }
 
 }

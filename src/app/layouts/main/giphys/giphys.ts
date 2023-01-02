@@ -31,7 +31,8 @@ export function renderGifDetail(gif: any): Giphy {
     giphy.profileUrl = gif?.user?.profile_url;
     giphy.userDescription = gif?.user?.description;
     giphy.source = gif?.source;
-    giphy.sourceShort = (gif?.source.substring(8).split('/')[0] + "/").concat((gif?.source.substring(8).split('/')[1] + "/")).concat("...");
+    // giphy.sourceShort = gif?.source?.replace("http://", "").replace("https://", "").replace("www.", "").substring(0, 20).concat("...");
+    giphy.sourceShort = "posts link";
 
     return giphy;
 }

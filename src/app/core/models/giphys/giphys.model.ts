@@ -29,4 +29,5 @@ export class Giphy {
     sourceGiphyShort: string;
     source: string;
     sourceShort: string;
+    rating: string;
 }

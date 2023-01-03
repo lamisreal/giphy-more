@@ -93,12 +93,12 @@ export class GiphyViewComponent {
         if (type === GiphyType.SEARCH) {
           this.category = "Search..."
           const param: Models.GiphyParam = {
-            query: this.giphySearch,
+            query: this.giphySearch.trim(),
             limit: this.limit,
             offset: this.limit * page
           }
 
-          localStorage.setItem('key', this.giphySearch);
+          localStorage.setItem('key', this.giphySearch.trim());
 
           this.callApi.getSearchItemGifs(param).subscribe((response: any) => {
             if (!Utils.CheckNullOrUndefinedOrEmpty(response.data) && response.data.length > 0) {
@@ -118,7 +118,7 @@ export class GiphyViewComponent {
   }
 
   refeshToTreding() {
-    if (Utils.CheckNullOrUndefinedOrEmpty(this.giphySearch)) {
+    if (Utils.CheckNullOrUndefinedOrEmpty(this.giphySearch.trim())) {
       this.getData(this.gridApi, GiphyType.TRENDING);
     }
   }

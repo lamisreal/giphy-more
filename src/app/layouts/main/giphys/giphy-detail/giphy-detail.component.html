@@ -27,15 +27,21 @@
             <br />
             <div *ngIf="gifDetail.source && gifDetail.sourceGiphy" class="source">
                 <h3 class="title">Source</h3>
-                <a *ngIf="gifDetail.source" class="content" [href]="gifDetail.source" target="_blank">@{{gifDetail.sourceShort}}</a>
+                <a *ngIf="gifDetail.source" class="content" [href]="gifDetail.source"
+                    target="_blank">@{{gifDetail.sourceShort}}</a>
                 <br />
-                <a *ngIf="gifDetail.sourceGiphy" class="content" [href]="gifDetail.sourceGiphy" target="_blank">@{{gifDetail.sourceGiphyShort}}</a>
+                <a *ngIf="gifDetail.sourceGiphy" class="content" [href]="gifDetail.sourceGiphy"
+                    target="_blank">@{{gifDetail.sourceGiphyShort}}</a>
             </div>
         </div>
         <div class="col-sm-8 detail-right">
             <div class="main">
                 <h2>{{gifDetail.title}}</h2>
-                <h5>Created at: {{gifDetail.uploadAt}}<span *ngIf="viewCount"> - {{viewCount}} Views</span></h5>
+                <h5>
+                    <span>Created at: {{gifDetail.uploadAt}}<span *ngIf="viewCount"> - {{viewCount}} Views</span></span>
+                    <br />
+                    <span>Rating: {{gifDetail.rating}}</span>
+                </h5>
                 <img class="image-gif" [src]="gifDetail.image" [alt]="gifDetail.title">
             </div>
             <div class="other">

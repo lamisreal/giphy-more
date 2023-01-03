@@ -35,6 +35,7 @@ export function renderGifDetail(gif: any): Giphy {
     giphy.sourceShort = "Original post";
     giphy.sourceGiphy = gif?.url;
     giphy.sourceGiphyShort = "Original ghipy post";
+    giphy.rating = gif?.rating;
 
     return giphy;
 }
